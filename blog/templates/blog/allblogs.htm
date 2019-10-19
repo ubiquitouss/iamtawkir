@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-
 <head>
     {%load staticfiles%}
     <meta charset="utf-8">
@@ -49,49 +48,38 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="http://www.twitter.com/theubiquitouss">Twitter </a>
+                    <a class="nav-item nav-link" href="http://www.twitter.com/theubiquitouss">Twitter </a>
                     <a class="nav-item nav-link " href="http://www.facebook.com/tawkir">Facebook</a>
                     <a class="nav-item nav-link" href="{%static 'cv.pdf'%}">Resume</a>
-                    <a class="nav-item nav-link " href="{% url 'allblogs' %}">Blog</a>
+                    <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
                 </div>
             </div>
+        </nav>
         </nav>
     </header>
 
     <main role="main">
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Hi! This is Tawkir!</h1>
-                <p class="lead text-muted">Hey! My name is Tawkir Talukder and I love to make Django-websites. It's the
-                    thrill of handling the requests that the people want!</p>
-                <p>
-                    <a href="mailto:tawkir.ph@gmail.com" class="btn btn-primary my-2">Email Me</a>
-                </p>
-                <img src="{%static '2.jpg'%}" />
-            </div>
-        </section>
+        <h1 class="text-center pt-3">Welcome to Tawkir's Blog</h1>
+        <br />
+        <br />
+        <h2>Latest Posts</h2>
+        <hr />
 
-        <div class="album py-5 bg-light">
-            <div class="container">
+        {%for blog in blogs.all%}
+       <a href="{%url 'detail' blog.id%}">
+            <h3>{{blog.title}}</h3>
+        </a>
+        {{blog.pub_date_st}}
+        <br />
+        <a href="{{blog.image.url}}"><img class="img-fluid" src="{{blog.image.url}}" height=200 width 200 /></a>
+        <br />
+        <p>{{blog.summary}}</p>
 
-                <div class="row">
-                    {%for job in jobs.all%}
-                    <div class="col-md-4">
+        {%endfor%}
 
-                        <div class="card mb-4 shadow-sm">
-                            <h4>{{job.title}}</h4>
 
-                            <img class="card-img-top" src={{job.image.url}} />
-                            <div class="card-body">
-                                <p class="card-text">{{job.summary}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {%endfor%}
-                </div>
-            </div>
-        </div>
+
 
     </main>
 
