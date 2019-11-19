@@ -26,7 +26,7 @@ SECRET_KEY = 'ph^mz_h^5j1bo-$u@n2+seb3uj&wy!+d@u93sy8wiqk&-mp&15'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['iamtawkir.herokuapp.com']
+ALLOWED_HOSTS = ['quiet-forest-30189.herokuapp.com']
 
 
 # Application definition
