@@ -1,1 +1,1 @@
-web: gunicorn quiet-forest-30189.wsgi
+web: gunicorn iamtawkir.wsgi
