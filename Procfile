@@ -1,1 +1,1 @@
-web: gunicorn iamtawkir.wsgi --log-file -
+web:gunicorn iamtawkir.wsgi --log-file -
